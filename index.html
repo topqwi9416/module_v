@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Интерактивная доска — Полная версия</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="toolbar">
+
+        <div class="group">
+            <button onclick="setTool('draw')">✏ Карандаш</button>
+            <input type="range" id="drawSize" min="1" max="30" value="4" oninput="updateDrawSize()">
+            <input type="color" id="drawColor" value="#000000" oninput="updateDrawColor()">
+        </div>
+
+        <div class="group">
+            <button onclick="setTool('erase')">🧽 Ластик</button>
+            <input type="range" id="eraseSize" min="10" max="80" value="30" oninput="updateEraseSize()">
+        </div>
+
+        <div class="group">
+            <button onclick="setTool('text')">🔤 Текст</button>
+            <input type="number" id="textSize" value="22" min="10" max="80" oninput="updateTextSize()">
+            <input type="color" id="textColor" value="#0044ff" oninput="updateTextColor()">
+        </div>
+
+        <div class="group">
+            <button onclick="setTool('rect')">▭ Квадрат</button>
+            <button onclick="setTool('circle')">◯ Круг</button>
+            <button onclick="setTool('arrow')">➤ Стрелка</button>
+        </div>
+
+        <div class="group">
+            <button onclick="clearBoard()">🗑 Очистить</button>
+            <button onclick="saveBoard()">💾 Сохранить</button>
+            <button onclick="loadBoard()">📂 Загрузить</button>
+            <button onclick="exportPNG()">📸 PNG</button>
+        </div>
+
+        <div class="group">
+            <button onclick="toggleLayers()">📑 Слои</button>
+        </div>
+
+    </div>
+
+    <div id="layersPanel"></div>
+
+    <canvas id="board"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
